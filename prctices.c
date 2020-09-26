@@ -230,17 +230,18 @@ void delend(struct node *head)
 void delpos(struct node *head)
 {
     int i=1,n;
+    struct node *temp=head;
     printf("\nenter the position from where node have to be deleted=");
     scanf("%d",&n);
     while(i!=n)
     {
-        head=head->next;
+        temp=temp->next;
         i++;
     }
     printf("%d %d %d",head->next->data,head->pre->data,head->data);
-    (head->pre)->next=head->next;
-    (head->next)->pre=head->pre;
-    free(head);
+    temp->pre->temp=temp->next;
+    temp->next->pre=temp->pre;
+    free(temp);
 }
 
 void reversing(struct node **head)
