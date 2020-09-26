@@ -258,6 +258,29 @@ void reversing(struct node **head)
         temp=temp->pre;
     }
 }
+del_node_pos()
+{
+    Node *loc;
+    int n,i = 1;
+
+    cout << "\n ENTER POSTION TO DELETE:";
+    cin  >> n;
+
+    loc = start;
+    while(i!=n)
+    {
+        loc = loc -> next;
+        i++;
+    }
+
+    loc -> prev -> next = loc -> next;
+    loc -> next -> prev = loc -> prev;
+    delete loc;
+
+    cout << "\n NODE " << n << "DELTED!";
+    char ch = cin.get();
+
+}
 
 void print(struct node *head)
 {
